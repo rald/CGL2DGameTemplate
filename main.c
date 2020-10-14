@@ -1,6 +1,8 @@
 #include <GL/glfw.h>
 #include <GL/gl2d.h>
 
+
+
 #define GAME_TITLE "CGL2DGameTemplate"
 
 #define SCREEN_WIDTH 640
