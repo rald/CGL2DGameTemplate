@@ -3,14 +3,13 @@ CFLAGS=-Wall -g
 LFLAGS=-lgl2d -lglfw -lXrandr -lX11 -lGL -lGLU -lpthread -lm
 INCDIR=-I.
 LIBDIR=-L.
-OBJS=main.o
+OBJS=game.o
 
 game: $(OBJS)
 	$(CC) -o game $(OBJS) $(LIBDIR) $(LFLAGS)
 
-main.o: main.c
-	$(CC) -c main.c -o main.o $(INCDIR) $(CFLAGS)
-
+game.o: game.c
+	$(CC) -c game.c $(INCDIR) $(CFLAGS)
 
 .PHONY: clean
 
