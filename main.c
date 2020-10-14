@@ -1,6 +1,8 @@
 #include <GL/glfw.h>
 #include <GL/gl2d.h>
 
+#include <stdbool.h>
+#include <math.h>
 
 
 #define GAME_TITLE "CGL2DGameTemplate"
@@ -12,7 +14,14 @@
 
 int main(int argc, char *argv[]) {
 
-	int finished=false;
+	double timeStart=0;
+	bool finished=false;
+
+	double cx=SCREEN_WIDTH/2,cy=SCREEN_HEIGHT/2;
+	double x[3],y[3];
+	int frame=0;
+
+
 
 	glScreenInit(SCREEN_WIDTH,SCREEN_HEIGHT);
 
@@ -22,11 +31,24 @@ int main(int argc, char *argv[]) {
 	glfwSwapInterval(1);
 
 
+	glBlendMode(GL2D_ALPHA);
+
 	while(!finished) {
 
+		x[0]=cos((double)frame/7)*150+cx;
+		y[0]=sin((double)frame/11)*100+cy;
 
+		x[1]=cos((double)frame/11)*100+cx;
+		y[1]=sin((double)frame/7)*150+cy;
 
-		glClearScreen();
+		x[2]=cos((double)frame/13)*200+cx;
+		y[2]=sin((double)frame/17)*150+cy;
+
+		glBoxFilled(0,0,SCREEN_WIDTH,SCREEN_HEIGHT,GL2D_RGBA(0,0,0,8));
+
+		glEllipseFilled(x[0],y[0],25,25,0,GL2D_RGBA(255,0,0,255));
+		glEllipseFilled(x[1],y[1],25,25,0,GL2D_RGBA(0,255,0,255));
+		glEllipseFilled(x[2],y[2],25,25,0,GL2D_RGBA(0,0,255,255));
 
 		glLine(0,0,50,50,GL2D_RGBA(255,255,255,255));
 
@@ -38,12 +60,14 @@ int main(int argc, char *argv[]) {
 
 		glEllipseFilled(325,25,25,25,0,GL2D_RGBA(255,255,255,255));
 
+		frame++;
+
 
 
 		glfwSwapBuffers();
 
-		float timeStart = glfwGetTime();
-		while( (glfwGetTime()-timeStart)<(1.0/60.0)) {};
+		timeStart = glfwGetTime();
+		while(glfwGetTime()-timeStart < 1.0/60.0) {};
 
 		finished = glfwGetKey(GLFW_KEY_ESC) | !glfwGetWindowParam(GLFW_OPENED);
 
