@@ -15,7 +15,7 @@
 int main(int argc, char *argv[]) {
 
 	double timeStart=0;
-	bool finished=false;
+	bool quit=false;
 
 	double cx=SCREEN_WIDTH/2,cy=SCREEN_HEIGHT/2;
 	double x[3],y[3];
@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
 
 	glBlendMode(GL2D_ALPHA);
 
-	while(!finished) {
+	while(!quit) {
 
 		x[0]=cos((double)frame/7)*150+cx;
 		y[0]=sin((double)frame/11)*100+cy;
@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
 		timeStart = glfwGetTime();
 		while(glfwGetTime()-timeStart < 1.0/60.0) {};
 
-		finished = glfwGetKey(GLFW_KEY_ESC) | !glfwGetWindowParam(GLFW_OPENED);
+		quit = glfwGetKey(GLFW_KEY_ESC) | !glfwGetWindowParam(GLFW_OPENED);
 
 	}
 
