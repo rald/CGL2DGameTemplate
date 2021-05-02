@@ -1,1 +1,2 @@
-# CGL2DGameTemplate
+# template
+

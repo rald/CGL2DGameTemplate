@@ -1,17 +1,15 @@
-CC=gcc
-CFLAGS=-Wall -g
-LFLAGS=-lgl2d -lglfw -lXrandr -lX11 -lGL -lGLU -lpthread -lm
-INCDIR=-I.
-LIBDIR=-L.
-OBJS=game.o
+libgl2d.a: gl2d.o
+	ar rcs libgl2d.a gl2d.o
 
-game: $(OBJS)
-	$(CC) -o game $(OBJS) $(LIBDIR) $(LFLAGS)
+gl2d.o: gl2d.c gl2d.h
+	gcc -c gl2d.c -o gl2d.o
 
-game.o: game.c
-	$(CC) -c game.c $(INCDIR) $(CFLAGS)
-
-.PHONY: clean
+.PHONY: clean install
 
 clean:
-	rm $(OBJS) game
+	rm gl2d.o libgl2d.a
+
+install: gl2d.h libgl2d.a
+	cp gl2d.h /usr/local/include/GL
+	cp libgl2d.a /usr/local/lib
+
