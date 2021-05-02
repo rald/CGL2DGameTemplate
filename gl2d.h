@@ -6,7 +6,7 @@
 #include <string.h>
 #include <math.h>
 
-#include <GL/glfw.h>
+#include "glfw.h"
 
 
 

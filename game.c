@@ -1,5 +1,5 @@
-#include <GL/glfw.h>
-#include <GL/gl2d.h>
+#include "glfw.h"
+#include "gl2d.h"
 
 #include <stdbool.h>
 #include <math.h>
