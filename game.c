@@ -60,6 +60,8 @@ int main(int argc, char *argv[]) {
 
 		glEllipseFilled(325,25,25,25,0,GL2D_RGBA(255,255,255,255));
 
+		char str[256];
+
 		frame++;
 
 

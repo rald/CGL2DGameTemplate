@@ -102,8 +102,8 @@ GLuint glLoadSprite( const char *filename,
                    );
 
 
-
 void glPrint( int x, int y, const char *text, const GLuint color );
+
 
 
 
