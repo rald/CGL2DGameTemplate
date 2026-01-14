@@ -39,9 +39,8 @@ int main(int argc, char *argv[]) {
 		glBoxFilled(225,0,275,50,GL2D_RGBA(255,255,255,255));
 
 		glEllipseFilled(325,25,25,25,0,GL2D_RGBA(255,255,255,255));
-		
-		
-		glPrint(0,0,"Hello World",GL2D_RGBA(255,255,255,255));
+
+		glPrint((SCREEN_WIDTH-11*10)/2,(SCREEN_HEIGHT-10)/2,"Hello World",GL2D_RGBA(255,255,255,255));
 
 		glfwSwapBuffers();
 
